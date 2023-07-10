@@ -30,14 +30,14 @@ const Navber = (props) => {
   return (
     <Fragment>
       {/* Navber Section */}
-      <nav className="fixed top-0 w-full z-20 shadow-lg lg:shadow-none bg-blue-300 ">
+      <nav className="fixed top-0 w-full z-20 shadow-lg lg:shadow-none bg-white ">
         <div className="m-4 md:mx-12 md:my-6 grid grid-cols-4 lg:grid-cols-3">
           <div className="hidden lg:block col-span-1 flex fs-2  mt-1">
             <h1
-              className="text-red-500  rounded-lg   tracking-widest  cursor-pointer"
+              className="text-red-500 text-3xl rounded-lg   tracking-widest  cursor-pointer"
               onClick={(e) => history.push("/")}
             >
-              BookStore
+              𝓑𝓸𝓸𝓴𝓢𝓽𝓸𝓻𝓮
             </h1>
           </div>
           <div className="col-span-2 lg:hidden flex justify-items-stretch	 items-center">
@@ -80,7 +80,7 @@ const Navber = (props) => {
             {/*  WishList Page Button */}
             <div
               onClick={(e) => history.push("/wish-list")}
-              className="hover:bg-gray-200 rounded-lg px-2 py-2 cursor-pointer"
+              className="hover:bg-red-500 rounded-lg px-2 py-2 text-black cursor-pointer"
               title=""
             >
               WishList
@@ -106,7 +106,7 @@ const Navber = (props) => {
             {localStorage.getItem("jwt") ? (
               <Fragment>
                 <div
-                  className="userDropdownBtn hover:bg-gray-200 px-2 py-2 rounded-lg relative"
+                  className="userDropdownBtn hover:bg-gray-200 px-2 py-2 text-black  rounded-lg relative"
                   title=""
                 >
                   My Account
@@ -148,7 +148,7 @@ const Navber = (props) => {
                                 />
                               </svg>
                             </span>
-                            <span>My Orders</span>
+                            <span className="text-black ">My Orders</span>
                           </span>
                           <span
                             onClick={(e) => history.push("/user/profile")}
@@ -170,7 +170,7 @@ const Navber = (props) => {
                                 />
                               </svg>
                             </span>
-                            <span>My Account</span>
+                            <span className="text-black ">My Account</span>
                           </span>
                           <span
                             onClick={(e) => history.push("/wish-list")}
@@ -192,7 +192,7 @@ const Navber = (props) => {
                                 />
                               </svg>
                             </span>
-                            <span>My Wishlist</span>
+                            <span className="text-black ">My Wishlist</span>
                           </span>
                           <span
                             onClick={(e) => history.push("/user/setting")}
@@ -220,7 +220,7 @@ const Navber = (props) => {
                                 />
                               </svg>
                             </span>
-                            <span>Setting</span>
+                            <span className="text-black ">Setting</span>
                           </span>
                           <span
                             onClick={(e) => logout()}
@@ -242,7 +242,7 @@ const Navber = (props) => {
                                 />
                               </svg>
                             </span>
-                            <span>Logout</span>
+                            <span className="text-black ">Logout</span>
                           </span>
                         </li>
                       </Fragment>
@@ -297,7 +297,7 @@ const Navber = (props) => {
                                 />
                               </svg>
                             </span>
-                            <span>Logout</span>
+                            <span className="text-black ">Logout</span>
                           </span>
                         </li>
                       </Fragment>
@@ -309,7 +309,7 @@ const Navber = (props) => {
               /* Login Modal Button */
               <div
                 onClick={(e) => loginModalOpen()}
-                className="cursor-pointer hover:bg-gray-200 px-2 py-2 rounded-lg"
+                className="cursor-pointer hover:bg-gray-200 px-2 py-2 rounded-lg text-black "
                 title=""
               >
                 Login
@@ -332,7 +332,7 @@ const Navber = (props) => {
             {/* Cart Modal Button */}
             <div
               onClick={(e) => cartModalOpen()}
-              className="hover:bg-gray-200 px-2 py-2 rounded-lg relative cursor-pointer"
+              className="hover:bg-gray-200 px-2 py-2 rounded-lg relative cursor-pointer text-black "
               title=""
             >
               Cart
@@ -355,34 +355,6 @@ const Navber = (props) => {
                 {data.cartProduct !== null ? data.cartProduct.length : 0}
               </span>
             </div>
-          </div>
-        </div>
-        <div
-          className={
-            data.navberHamburger && data.navberHamburger
-              ? "px-1 pb-2 md:pb-0 md:px-10 lg:hidden"
-              : "hidden px-1 pb-2 md:pb-0 md:px-10 lg:hidden"
-          }
-        >
-          <div className="col-span-1 flex flex-col text-gray-600">
-            <span
-              className="font-medium text-lg tracking-widest hover:text-gray-800 hover:bg-gray-200 px-3 py-2 rounded-lg cursor-pointer"
-              onClick={(e) => history.push("/")}
-            >
-              Shop
-            </span>
-            <span
-              className="font-medium text-lg tracking-widest hover:text-gray-800 hover:bg-gray-200 px-3 py-2 rounded-lg cursor-pointer"
-              onClick={(e) => history.push("/blog")}
-            >
-              Blog
-            </span>
-            <span
-              className="font-medium text-lg tracking-widest hover:text-gray-800 hover:bg-gray-200 px-3 py-2 rounded-lg cursor-pointer"
-              onClick={(e) => history.push("/contact-us")}
-            >
-              Contact us
-            </span>
           </div>
         </div>
       </nav>
