@@ -103,8 +103,8 @@ const ProductDetailsSection = (props) => {
           category: sProduct.pCategory.cName,
         }}
       />
-      <section className="m-4 md:mx-12 md:my-6">
-        <div className="grid grid-cols-2 md:grid-cols-12">
+      <section className="m-4 md:mx-12 ">
+        <div className="grid grid-cols-6 md:grid-cols-12">
           <div className="hidden md:block md:col-span-1 md:flex md:flex-col md:space-y-4 md:mr-2">
             <img
               onClick={(e) =>
@@ -127,10 +127,10 @@ const ProductDetailsSection = (props) => {
               alt="pic"
             />
           </div>
-          <div className="col-span-2 md:col-span-7">
+          <div className="col-span-2 md:col-span-3">
             <div className="relative">
               <img
-                className="w-full"
+                className="w-full "
                 src={`${apiURL}/uploads/products/${sProduct.pImages[count]}`}
                 alt="Pic"
               />
@@ -173,249 +173,255 @@ const ProductDetailsSection = (props) => {
             </div>
           </div>
           <div className="col-span-2 mt-8 md:mt-0 md:col-span-4 md:ml-6 lg:ml-12">
-            <div className="flex flex-col leading-8">
-              <div className="text-2xl tracking-wider">{sProduct.pName}</div>
-              <div className="flex justify-between items-center">
-                <span className="text-xl tracking-wider text-yellow-700">
-                  ${sProduct.pPrice}.00
-                </span>
-                <span>
-                  <svg
-                    onClick={(e) => isWishReq(e, sProduct._id, setWlist)}
-                    className={`${
-                      isWish(sProduct._id, wList) && "hidden"
-                    } w-5 h-5 md:w-6 md:h-6 cursor-pointer text-yellow-700`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    />
-                  </svg>
-                  <svg
-                    onClick={(e) => unWishReq(e, sProduct._id, setWlist)}
-                    className={`${
-                      !isWish(sProduct._id, wList) && "hidden"
-                    } w-5 h-5 md:w-6 md:h-6 cursor-pointer text-yellow-700`}
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
+            <div className="my-4 md:my-6 text-black">
+              Description: <br /> {sProduct.pDescription}
+            </div>
+          </div>
+
+          {/* Cart Function */}
+          <div className="container rounded   md:col-span-3 mx-5">
+            <div className="row">
+              <div className="flex flex-col ">
+                <div className="text-2xl  ">{sProduct.pName}</div>
+                <div className="flex justify-between items-center">
+                  <span className="text-xl tracking-wider text-yellow-700">
+                    ${sProduct.pPrice}.00
+                  </span>
+                  <span>
+                    <svg
+                      onClick={(e) => isWishReq(e, sProduct._id, setWlist)}
+                      className={`${
+                        isWish(sProduct._id, wList) && "hidden"
+                      } w-5 h-5 md:w-6 md:h-6 cursor-pointer text-yellow-700`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                      />
+                    </svg>
+                    <svg
+                      onClick={(e) => unWishReq(e, sProduct._id, setWlist)}
+                      className={`${
+                        !isWish(sProduct._id, wList) && "hidden"
+                      } w-5 h-5 md:w-6 md:h-6 cursor-pointer text-yellow-700`}
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
               </div>
-            </div>
-            <div className="my-4 md:my-6 text-gray-600">
-              {sProduct.pDescription}
-            </div>
-            <div className="my-4 md:my-6">
-              {+quantitiy === +sProduct.pQuantity ? (
-                <span className="text-xs text-red-500">Stock limited</span>
-              ) : (
-                ""
-              )}
-              <div
-                className={`flex justify-between items-center px-4 py-2 border ${
-                  +quantitiy === +sProduct.pQuantity && "border-red-500"
-                }`}
-              >
+              <div className="my-4 md:my-6">
+                {+quantitiy === +sProduct.pQuantity ? (
+                  <span className="text-xs text-red-500">Stock limited</span>
+                ) : (
+                  ""
+                )}
                 <div
-                  className={`${
-                    quantitiy === sProduct.pQuantity && "text-red-500"
+                  className={`flex justify-between items-center px-4 py-2 border ${
+                    +quantitiy === +sProduct.pQuantity && "border-red-500"
                   }`}
                 >
-                  Quantity
+                  <div
+                    className={`${
+                      quantitiy === sProduct.pQuantity && "text-red-500"
+                    }`}
+                  >
+                    Quantity
+                  </div>
+                  {/* Quantity Button */}
+                  {sProduct.pQuantity !== 0 ? (
+                    <Fragment>
+                      {layoutData.inCart == null ||
+                      (layoutData.inCart !== null &&
+                        layoutData.inCart.includes(sProduct._id) === false) ? (
+                        <div className="flex items-center space-x-2">
+                          <span
+                            onClick={(e) =>
+                              updateQuantity(
+                                "decrease",
+                                sProduct.pQuantity,
+                                quantitiy,
+                                setQuantitiy,
+                                setAlertq
+                              )
+                            }
+                          >
+                            <svg
+                              className="w-5 h-5 fill-current cursor-pointer"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                          <span className="font-semibold">{quantitiy}</span>
+                          <span
+                            onClick={(e) =>
+                              updateQuantity(
+                                "increase",
+                                sProduct.pQuantity,
+                                quantitiy,
+                                setQuantitiy,
+                                setAlertq
+                              )
+                            }
+                          >
+                            <svg
+                              className="w-5 h-5 fill-current cursor-pointer"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                      ) : (
+                        <div className="flex items-center space-x-2">
+                          <span>
+                            <svg
+                              className="w-5 h-5 fill-current cursor-not-allowed"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                          <span className="font-semibold">{quantitiy}</span>
+                          <span>
+                            <svg
+                              className="w-5 h-5 fill-current cursor-not-allowed"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                      )}
+                    </Fragment>
+                  ) : (
+                    <div className="flex items-center space-x-2">
+                      <span>
+                        <svg
+                          className="w-5 h-5 fill-current cursor-not-allowed"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                      <span className="font-semibold">{quantitiy}</span>
+                      <span>
+                        <svg
+                          className="w-5 h-5 fill-current cursor-not-allowed"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  )}
+                  {/* Quantity Button End */}
                 </div>
-                {/* Quantity Button */}
+                {/* Incart and out of stock button */}
                 {sProduct.pQuantity !== 0 ? (
                   <Fragment>
-                    {layoutData.inCart == null ||
-                    (layoutData.inCart !== null &&
-                      layoutData.inCart.includes(sProduct._id) === false) ? (
-                      <div className="flex items-center space-x-2">
-                        <span
-                          onClick={(e) =>
-                            updateQuantity(
-                              "decrease",
-                              sProduct.pQuantity,
-                              quantitiy,
-                              setQuantitiy,
-                              setAlertq
-                            )
-                          }
-                        >
-                          <svg
-                            className="w-5 h-5 fill-current cursor-pointer"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </span>
-                        <span className="font-semibold">{quantitiy}</span>
-                        <span
-                          onClick={(e) =>
-                            updateQuantity(
-                              "increase",
-                              sProduct.pQuantity,
-                              quantitiy,
-                              setQuantitiy,
-                              setAlertq
-                            )
-                          }
-                        >
-                          <svg
-                            className="w-5 h-5 fill-current cursor-pointer"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </span>
+                    {layoutData.inCart !== null &&
+                    layoutData.inCart.includes(sProduct._id) === true ? (
+                      <div
+                        style={{ background: "#367E18" }}
+                        className={`px-4 py-2 text-white text-center cursor-not-allowed uppercase opacity-55`}
+                      >
+                        In cart
                       </div>
                     ) : (
-                      <div className="flex items-center space-x-2">
-                        <span>
-                          <svg
-                            className="w-5 h-5 fill-current cursor-not-allowed"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </span>
-                        <span className="font-semibold">{quantitiy}</span>
-                        <span>
-                          <svg
-                            className="w-5 h-5 fill-current cursor-not-allowed"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </span>
+                      <div
+                        onClick={(e) =>
+                          addToCart(
+                            sProduct._id,
+                            quantitiy,
+                            sProduct.pPrice,
+                            layoutDispatch,
+                            setQuantitiy,
+                            setAlertq,
+                            fetchData,
+                            totalCost
+                          )
+                        }
+                        style={{ background: "#ABC270" }}
+                        className={`px-4 py-2 text-white text-center cursor-pointer uppercase`}
+                      >
+                        Add to cart
                       </div>
                     )}
                   </Fragment>
                 ) : (
-                  <div className="flex items-center space-x-2">
-                    <span>
-                      <svg
-                        className="w-5 h-5 fill-current cursor-not-allowed"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
+                  <Fragment>
+                    {layoutData.inCart !== null &&
+                    layoutData.inCart.includes(sProduct._id) === true ? (
+                      <div
+                        style={{ background: "#ABC270" }}
+                        className={`px-4 py-2 text-white text-center cursor-not-allowed uppercase opacity-55`}
                       >
-                        <path
-                          fillRule="evenodd"
-                          d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    <span className="font-semibold">{quantitiy}</span>
-                    <span>
-                      <svg
-                        className="w-5 h-5 fill-current cursor-not-allowed"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
+                        In cart
+                      </div>
+                    ) : (
+                      <div
+                        style={{ background: "#DC3535" }}
+                        disabled={true}
+                        className="px-4 py-2 text-white opacity-50 cursor-not-allowed text-center uppercase"
                       >
-                        <path
-                          fillRule="evenodd"
-                          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                  </div>
+                        Out of stock
+                      </div>
+                    )}
+                  </Fragment>
                 )}
-                {/* Quantity Button End */}
+                {/* Incart and out of stock button End */}
               </div>
-              {/* Incart and out of stock button */}
-              {sProduct.pQuantity !== 0 ? (
-                <Fragment>
-                  {layoutData.inCart !== null &&
-                  layoutData.inCart.includes(sProduct._id) === true ? (
-                    <div
-                      style={{ background: "#367E18" }}
-                      className={`px-4 py-2 text-white text-center cursor-not-allowed uppercase opacity-55`}
-                    >
-                      In cart
-                    </div>
-                  ) : (
-                    <div
-                      onClick={(e) =>
-                        addToCart(
-                          sProduct._id,
-                          quantitiy,
-                          sProduct.pPrice,
-                          layoutDispatch,
-                          setQuantitiy,
-                          setAlertq,
-                          fetchData,
-                          totalCost
-                        )
-                      }
-                      style={{ background: "#ABC270" }}
-                      className={`px-4 py-2 text-white text-center cursor-pointer uppercase`}
-                    >
-                      Add to cart
-                    </div>
-                  )}
-                </Fragment>
-              ) : (
-                <Fragment>
-                  {layoutData.inCart !== null &&
-                  layoutData.inCart.includes(sProduct._id) === true ? (
-                    <div
-                      style={{ background: "#ABC270" }}
-                      className={`px-4 py-2 text-white text-center cursor-not-allowed uppercase opacity-55`}
-                    >
-                      In cart
-                    </div>
-                  ) : (
-                    <div
-                      style={{ background: "#DC3535" }}
-                      disabled={true}
-                      className="px-4 py-2 text-white opacity-50 cursor-not-allowed text-center uppercase"
-                    >
-                      Out of stock
-                    </div>
-                  )}
-                </Fragment>
-              )}
-              {/* Incart and out of stock button End */}
             </div>
           </div>
         </div>
