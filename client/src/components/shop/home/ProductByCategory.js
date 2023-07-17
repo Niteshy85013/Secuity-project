@@ -62,6 +62,7 @@ const AllProduct = ({ products }) => {
                     className="w-full object-cover object-center cursor-pointer"
                     src={`${apiURL}/uploads/products/${item.pImages[0]}`}
                     alt=""
+                    style={{ height: "28rem" }}
                   />
                   <div className="flex items-center justify-between mt-2">
                     <div className="text-gray-600 font-light truncate">
@@ -89,7 +90,7 @@ const AllProduct = ({ products }) => {
                       </span>
                     </div>
                   </div>
-                  <div>{item.pPrice}.00$</div>
+                  <div> ₹. {item.pPrice}.00$</div>
                   <div className="absolute top-0 right-0 mx-2 my-2 md:mx-4">
                     <svg
                       className="w-5 h-5 md:w-6 md:h-6 cursor-pointer text-yellow-700"

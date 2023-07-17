@@ -68,6 +68,7 @@ const SingleProduct = (props) => {
                   className="w-full object-cover object-center cursor-pointer img-fluid"
                   src={`${apiURL}/uploads/products/${item.pImages[0]}`}
                   alt=""
+                  style={{ height: "28rem" }}
                 />
                 <div className="flex items-center justify-between mt-2">
                   <div className="text-gray-600 font-light truncate">
@@ -95,7 +96,7 @@ const SingleProduct = (props) => {
                     </span>
                   </div>
                 </div>
-                <div>${item.pPrice}.00</div>
+                <div>₹. {item.pPrice}.00</div>
                 {/* WhisList Logic  */}
                 <div className="absolute top-0 right-0 mx-2 my-2 md:mx-4">
                   <svg

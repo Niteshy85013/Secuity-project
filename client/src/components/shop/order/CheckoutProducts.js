@@ -75,6 +75,8 @@ export const CheckoutComponent = (props) => {
                   ) : (
                     ""
                   )}
+                </div>
+                <div className="container ms-5">
                   <div className="flex flex-col py-2">
                     <label htmlFor="address" className="pb-2">
                       Dalivery Address
@@ -113,17 +115,8 @@ export const CheckoutComponent = (props) => {
                       placeholder="+880"
                     />
                   </div>
-                  <DropIn
-                    options={{
-                      authorization: state.clientToken,
-                      paypal: {
-                        flow: "vault",
-                      },
-                    }}
-                    onInstance={(instance) => (state.instance = instance)}
-                  />
-                  <div 
-                  
+
+                  <div
                     onClick={(e) =>
                       pay(
                         data,

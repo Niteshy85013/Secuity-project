@@ -115,6 +115,7 @@ const ProductDetailsSection = (props) => {
               } cursor-pointer w-20 h-20 object-cover object-center`}
               src={`${apiURL}/uploads/products/${sProduct.pImages[0]}`}
               alt="pic"
+             
             />
             <img
               onClick={(e) =>
