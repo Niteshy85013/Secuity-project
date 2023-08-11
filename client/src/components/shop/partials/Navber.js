@@ -30,11 +30,14 @@ const Navber = (props) => {
   return (
     <Fragment>
       {/* Navber Section */}
-      <nav className="fixed top-0 w-full z-20 shadow-lg lg:shadow-none bg-white ">
+      <nav
+        className="fixed top-0 w-full z-20 shadow-lg    border border-dark"
+        style={{ background: "#1B1A1D" }}
+      >
         <div className="m-4 md:mx-12 md:my-6 grid grid-cols-4 lg:grid-cols-3">
           <div className="hidden lg:block col-span-1 flex fs-2  mt-1">
             <h1
-              className="text-red-500 text-3xl rounded-lg   tracking-widest  cursor-pointer"
+              className="text-red-400 text-2xl rounded-lg   tracking-widest  cursor-pointer"
               onClick={(e) => history.push("/")}
             >
               𝓑𝓸𝓸𝓴𝓢𝓽𝓸𝓻𝓮
@@ -80,7 +83,7 @@ const Navber = (props) => {
             {/*  WishList Page Button */}
             <div
               onClick={(e) => history.push("/wish-list")}
-              className="hover:bg-red-500 rounded-lg px-2 py-2 text-black cursor-pointer"
+              className="hover:bg-red-500 rounded-lg px-2 py-2 text-white cursor-pointer"
               title=""
             >
               WishList
@@ -106,7 +109,7 @@ const Navber = (props) => {
             {localStorage.getItem("jwt") ? (
               <Fragment>
                 <div
-                  className="userDropdownBtn hover:bg-gray-200 px-2 py-2 text-black  rounded-lg relative"
+                  className="userDropdownBtn hover:bg-red-500 px-2 py-2 text-white   rounded-lg relative"
                   title=""
                 >
                   My Account
@@ -130,7 +133,7 @@ const Navber = (props) => {
                         <li className="flex flex-col text-gray-700 w-48 shadow-lg">
                           <span
                             onClick={(e) => history.push("/user/orders")}
-                            className="flex space-x-2 py-2 px-8 hover:bg-gray-400 cursor-pointer"
+                            className="flex space-x-2 py-2 px-8 hover:bg-red-500 hover:text-white cursor-pointer"
                           >
                             <span>
                               <svg
@@ -148,11 +151,13 @@ const Navber = (props) => {
                                 />
                               </svg>
                             </span>
-                            <span className="text-black ">My Orders</span>
+                            <span className="text-black hover:text-white">
+                              My Orders
+                            </span>
                           </span>
                           <span
                             onClick={(e) => history.push("/user/profile")}
-                            className="flex space-x-2 py-2 px-8 hover:bg-gray-400 cursor-pointer"
+                            className="flex space-x-2 py-2 px-8 hover:bg-red-500 hover:text-white cursor-pointer"
                           >
                             <span>
                               <svg
@@ -170,11 +175,13 @@ const Navber = (props) => {
                                 />
                               </svg>
                             </span>
-                            <span className="text-black ">My Account</span>
+                            <span className="text-black hover:text-white">
+                              My Account
+                            </span>
                           </span>
                           <span
                             onClick={(e) => history.push("/wish-list")}
-                            className="flex space-x-2 py-2 px-8 hover:bg-gray-400 cursor-pointer"
+                            className="flex space-x-2 py-2 px-8 hover:bg-red-500 hover:text-white cursor-pointer"
                           >
                             <span>
                               <svg
@@ -192,11 +199,13 @@ const Navber = (props) => {
                                 />
                               </svg>
                             </span>
-                            <span className="text-black ">My Wishlist</span>
+                            <span className="text-black hover:text-white">
+                              My Wishlist
+                            </span>
                           </span>
                           <span
                             onClick={(e) => history.push("/user/setting")}
-                            className="flex space-x-1 py-2 px-8 hover:bg-gray-400 cursor-pointer"
+                            className="flex space-x-1 py-2 px-8 hover:bg-red-500 hover:text-white cursor-pointer"
                           >
                             <span>
                               <svg
@@ -220,11 +229,13 @@ const Navber = (props) => {
                                 />
                               </svg>
                             </span>
-                            <span className="text-black ">Setting</span>
+                            <span className="text-black hover:text-white">
+                              Setting
+                            </span>
                           </span>
                           <span
                             onClick={(e) => logout()}
-                            className="flex space-x-2 py-2 px-8 hover:bg-gray-400 cursor-pointer"
+                            className="flex space-x-2 py-2 px-8 hover:bg-red-500 hover:text-white cursor-pointer"
                           >
                             <span>
                               <svg
@@ -242,7 +253,9 @@ const Navber = (props) => {
                                 />
                               </svg>
                             </span>
-                            <span className="text-black ">Logout</span>
+                            <span className="text-black hover:text-white ">
+                              Logout
+                            </span>
                           </span>
                         </li>
                       </Fragment>
@@ -279,7 +292,7 @@ const Navber = (props) => {
                           </span>
                           <span
                             onClick={(e) => logout()}
-                            className="flex space-x-2 py-2 px-8 hover:bg-gray-400 cursor-pointer"
+                            className="flex space-x-2 py-2 px-8 hover:bg-red-500 cursor-pointer"
                           >
                             <span>
                               <svg
@@ -309,7 +322,7 @@ const Navber = (props) => {
               /* Login Modal Button */
               <div
                 onClick={(e) => loginModalOpen()}
-                className="cursor-pointer hover:bg-gray-200 px-2 py-2 rounded-lg text-black "
+                className="cursor-pointer hover:bg-red-500 px-2 py-2 rounded-lg text-white "
                 title=""
               >
                 Login
@@ -332,7 +345,7 @@ const Navber = (props) => {
             {/* Cart Modal Button */}
             <div
               onClick={(e) => cartModalOpen()}
-              className="hover:bg-gray-200 px-2 py-2 rounded-lg relative cursor-pointer text-black "
+              className="hover:bg-red-500 px-2 py-2 rounded-lg relative cursor-pointer text-white "
               title=""
             >
               Cart
@@ -351,7 +364,7 @@ const Navber = (props) => {
                   d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                 />
               </svg> */}
-              <span className="absolute top-0 ml-6 mt-1 bg-yellow-700 rounded px-1 text-white text-xs hover:text-gray-200 font-semibold">
+              <span className="absolute top-0 ml-6 mt-1 bg-red-700 rounded px-1 text-white text-xs hover:text-gray-200 font-semibold">
                 {data.cartProduct !== null ? data.cartProduct.length : 0}
               </span>
             </div>

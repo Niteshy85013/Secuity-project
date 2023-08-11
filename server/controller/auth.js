@@ -123,7 +123,7 @@ class Auth {
             { _id: data._id, role: data.userRole },
 
             JWT_SECRET,
-            process.env.JWT_SECRET,
+
             { expiresIn: "5m" }
           );
           auditLogger(data._id, email, "logged in");

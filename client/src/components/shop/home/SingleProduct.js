@@ -65,10 +65,10 @@ const SingleProduct = (props) => {
               <div className="relative col-span-1 m-2">
                 <img
                   onClick={(e) => history.push(`/products/${item._id}`)}
-                  className="w-full object-cover object-center cursor-pointer img-fluid"
+                  className="rounded w-full cursor-pointer img-fluid "
                   src={`${apiURL}/uploads/products/${item.pImages[0]}`}
                   alt=""
-                  style={{ height: "28rem" }}
+                  style={{ maxHeight: "23rem" }}
                 />
                 <div className="flex items-center justify-between mt-2">
                   <div className="text-gray-600 font-light truncate">
