@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const userModel = require("../models/users");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config/keys");
+const auditLogger = require("../utils/auditlogger");
 
 class Auth {
   async isAdmin(req, res) {
@@ -74,6 +75,7 @@ class Auth {
               });
               newUser
                 .save()
+
                 .then((data) => {
                   return res.json({
                     success: "Account create successfully. Please login",
@@ -82,6 +84,7 @@ class Auth {
                 .catch((err) => {
                   console.log(err);
                 });
+              auditLogger(newUser._id, email, name, "registered");
             }
           } catch (err) {
             console.log(err);
@@ -118,8 +121,12 @@ class Auth {
         if (login) {
           const token = jwt.sign(
             { _id: data._id, role: data.userRole },
-            JWT_SECRET
+
+            JWT_SECRET,
+            process.env.JWT_SECRET,
+            { expiresIn: "5m" }
           );
+          auditLogger(data._id, email, "logged in");
           const encode = jwt.verify(token, JWT_SECRET);
           return res.json({
             token: token,
