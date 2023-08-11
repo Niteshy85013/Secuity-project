@@ -37,7 +37,7 @@ const Navber = (props) => {
         <div className="m-4 md:mx-12 md:my-6 grid grid-cols-4 lg:grid-cols-3">
           <div className="hidden lg:block col-span-1 flex fs-2  mt-1">
             <h1
-              className="text-red-400 text-2xl rounded-lg   tracking-widest  cursor-pointer"
+              className="text-green-500 text-3xl rounded-lg   tracking-widest  cursor-pointer"
               onClick={(e) => history.push("/")}
             >
               𝓑𝓸𝓸𝓴𝓢𝓽𝓸𝓻𝓮

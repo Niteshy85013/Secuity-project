@@ -208,9 +208,8 @@ const AddCategoryModal = (props) => {
             </div>
             <div className="flex flex-col space-y-1 w-full pb-4 md:pb-6 mt-4">
               <button
-                style={{ background: "#ABC270" }}
                 type="submit"
-                className="bg-gray-800 text-gray-100 rounded-full text-lg font-medium py-2"
+                className="bg-red-500 text-white hover:bg-green-500   rounded-full text-lg font-medium py-2"
               >
                 Create category
               </button>

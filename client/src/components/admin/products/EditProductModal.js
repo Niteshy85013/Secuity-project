@@ -348,9 +348,8 @@ const EditProductModal = (props) => {
             </div>
             <div className="flex flex-col space-y-1 w-full pb-4 md:pb-6 mt-4">
               <button
-                style={{ background: "#ABC270" }}
                 type="submit"
-                className="rounded-full bg-gray-800 text-gray-100 text-lg font-medium py-2"
+                className="rounded-full  bg-red-500 text-white hover:bg-green-500 text-lg font-medium py-2"
               >
                 Update product
               </button>

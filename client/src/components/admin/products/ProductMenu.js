@@ -11,14 +11,13 @@ const ProductMenu = (props) => {
         <div className="flex items-center">
           {/* It's open the add product modal */}
           <span
-            style={{ background: "#ABC270" }}
             onClick={(e) =>
               dispatch({ type: "addProductModal", payload: true })
             }
-            className="rounded-full cursor-pointer p-2 bg-gray-800 flex items-center text-gray-100 text-sm font-semibold uppercase"
+            className="rounded-full cursor-pointer p-2 bg-black flex items-center text-white  text-sm font-semibold uppercase"
           >
             <svg
-              className="w-6 h-6 text-gray-100 mr-2"
+              className="w-6 h-6 text-white  mr-2"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"

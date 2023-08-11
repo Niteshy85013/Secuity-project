@@ -12,14 +12,13 @@ const CategoryMenu = (props) => {
         <div className="flex flex-col space-y-4 md:flex-row md:justify-between md:items-center w-full">
           {/* It's open the add category modal */}
           <div
-            style={{ background: "#ABC270" }}
             onClick={(e) =>
               dispatch({ type: "addCategoryModal", payload: true })
             }
-            className="cursor-pointer rounded-full p-2 flex items-center justify-center text-gray-100 text-sm font-semibold uppercase"
+            className="cursor-pointer rounded-full p-2 flex items-center justify-center text-gray-100 text-sm font-semibold uppercase bg-black"
           >
             <svg
-              className="w-6 h-6 text-gray-100 mr-2"
+              className="w-6 h-6 text-white mr-2"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"

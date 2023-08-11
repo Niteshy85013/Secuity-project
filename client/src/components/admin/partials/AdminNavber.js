@@ -13,7 +13,7 @@ const AdminNavber = (props) => {
 
   return (
     <Fragment>
-      <nav className="sticky z-10 flex items-center shadow-md justify-between px-4 py-4 md:px-8 top-0 w-full bg-white">
+      <nav className="sticky z-10 flex items-center shadow-md justify-between px-4 py-4 md:px-8 top-0 w-full bg-blue-500">
         {/*  Large Screen Show  */}
 
         {/*  Large Screen Show  */}
@@ -21,7 +21,7 @@ const AdminNavber = (props) => {
           <span
             onClick={(e) => history.push("/admin/dashboard")}
             style={{ letterSpacing: "0.70rem" }}
-            className="flex items-left text-center font-bold uppercase text-black text-2xl cursor-pointer px-2 text-center"
+            className="flex items-left text-center font-bold uppercase text-white text-2xl cursor-pointer px-2 text-center"
           >
             Admin Dashboard
           </span>
