@@ -5,6 +5,8 @@ const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config/keys");
 const auditLogger = require("../utils/auditlogger");
 
+// List of common passwords to be avoided
+const commonPasswords = ["123456", "password"];
 class Auth {
   async isAdmin(req, res) {
     let { loggedInUserId } = req.body;
@@ -43,12 +45,20 @@ class Auth {
       error = { ...error, name: "Name must be 3-25 charecter" };
       return res.json({ error });
     } else {
+      // Check if the password is in the list of common passwords
+      if (commonPasswords.includes(password)) {
+        error = {
+          ...error,
+          password: "Password is too common. Please choose a stronger password",
+        };
+        return res.json({ error });
+      }
       if (validateEmail(email)) {
         name = toTitleCase(name);
-        if ((password.length > 255) | (password.length < 8)) {
+        if ((password.length > 12) | (password.length < 8)) {
           error = {
             ...error,
-            password: "Password must be 8 charecter",
+            password: "Password must be 8-12 charecter",
             name: "",
             email: "",
           };
@@ -75,7 +85,6 @@ class Auth {
               });
               newUser
                 .save()
-
                 .then((data) => {
                   return res.json({
                     success: "Account create successfully. Please login",
@@ -84,7 +93,7 @@ class Auth {
                 .catch((err) => {
                   console.log(err);
                 });
-              auditLogger(newUser._id, email, name, "registered");
+              auditLogger(newUser._id, email, "registered");
             }
           } catch (err) {
             console.log(err);
@@ -103,6 +112,7 @@ class Auth {
   }
 
   /* User Login/Signin controller  */
+
   async postSignin(req, res) {
     let { email, password } = req.body;
     if (!email || !password) {
@@ -118,13 +128,13 @@ class Auth {
         });
       } else {
         const login = await bcrypt.compare(password, data.password);
+
         if (login) {
+          const expiresInMinutes = "24h"; // Token expires in 24 hours
           const token = jwt.sign(
             { _id: data._id, role: data.userRole },
-
             JWT_SECRET,
-
-            { expiresIn: "5m" }
+            { expiresIn: `${expiresInMinutes}m` }
           );
           auditLogger(data._id, email, "logged in");
           const encode = jwt.verify(token, JWT_SECRET);

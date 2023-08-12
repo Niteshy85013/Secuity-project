@@ -67,15 +67,14 @@ const CartModal = () => {
           !data.cartModal ? "hidden" : ""
         } fixed z-40 inset-0 flex items-start justify-end`}
       >
-        <div
-          style={{ background: "#10A19D" }}
-          className="w-full md:w-5/12 lg:w-4/12 h-full flex flex-col justify-between"
-        >
+        <div className="w-full md:w-5/12 lg:w-4/12 h-full flex flex-col justify-between bg-white">
           <div className="overflow-y-auto">
             <div className="border-b border-gray-700 flex justify-between">
-              <div className="p-4 text-white text-lg font-semibold">Cart Items</div>
+              <div className="p-4 text-black text-lg font-semibold">
+                Cart Items
+              </div>
               {/* Cart Modal Close Button */}
-              <div className="p-4 text-white">
+              <div className="p-4 text-red-500">
                 <svg
                   onClick={(e) => cartModalOpen()}
                   className="w-6 h-6 cursor-pointer"
@@ -98,7 +97,7 @@ const CartModal = () => {
                   return (
                     <Fragment key={index}>
                       {/* Cart Product Start */}
-                      <div className="text-white flex space-x-2 my-4 items-center">
+                      <div className="text-black flex space-x-2 my-4 items-center">
                         <img
                           className="w-16 h-16 object-cover object-center"
                           src={`${apiURL}/uploads/products/${item.pImages[0]}`}
@@ -108,18 +107,18 @@ const CartModal = () => {
                           <div className="my-2">{item.pName}</div>
                           <div className="flex items-center justify-between">
                             <div className="flex items-center justify-between space-x-2">
-                              <div className="text-sm text-gray-400">
+                              <div className="text-sm text-black">
                                 Quantity :
                               </div>
                               <div className="flex items-end">
-                                <span className="text-sm text-gray-200">
+                                <span className="text-sm text-black">
                                   {quantity(item._id)}
                                 </span>
                               </div>
                             </div>
                             <div>
                               {" "}
-                              <span className="text-sm text-gray-400">
+                              <span className="text-sm text-black">
                                 Subtotoal :
                               </span>{" "}
                               ${subTotal(item._id, item.pPrice)}.00
@@ -129,7 +128,7 @@ const CartModal = () => {
                           {/* Cart Product Remove Button */}
                           <div
                             onClick={(e) => removeCartProduct(item._id)}
-                            className="absolute top-0 right-0 text-white"
+                            className="absolute top-0 right-0 text-red-500"
                           >
                             <svg
                               className="w-5 h-5 cursor-pointer"
@@ -161,7 +160,7 @@ const CartModal = () => {
           <div className="m-4 space-y-4">
             <div
               onClick={(e) => cartModalOpen()}
-              className="cursor-pointer px-4 py-2 border border-gray-400 text-white text-center cursor-pointer"
+              className="cursor-pointer px-4 py-2 border border-gray-400 hover:bg-green-500 hover:text-white text-black text-center cursor-pointer"
             >
               Continue shopping
             </div>
@@ -169,7 +168,7 @@ const CartModal = () => {
               <Fragment>
                 {isAuthenticate() ? (
                   <div
-                    className="px-4 py-2 bg-black text-white text-center cursor-pointer"
+                    className="px-4 py-2 bg-red-500 text-white text-center cursor-pointer"
                     onClick={(e) => {
                       history.push("/checkout");
                       cartModalOpen();
@@ -179,8 +178,7 @@ const CartModal = () => {
                   </div>
                 ) : (
                   <div
-                  style={{ background: "#ABC270" }}
-                    className="px-4 py-2 bg-black text-white text-center cursor-pointer"
+                    className="px-4 py-2 bg-red-500 text-white text-center cursor-pointer"
                     onClick={(e) => {
                       history.push("/");
                       cartModalOpen();
@@ -199,7 +197,7 @@ const CartModal = () => {
                 )}
               </Fragment>
             ) : (
-              <div style={{ background: "#ABC270" }} className="px-4 py-2 bg-black text-white text-center cursor-not-allowed">
+              <div className="px-4 py-2 bg-black text-white text-center cursor-not-allowed">
                 Checkout
               </div>
             )}

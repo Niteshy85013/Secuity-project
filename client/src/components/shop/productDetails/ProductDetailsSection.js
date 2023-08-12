@@ -37,6 +37,7 @@ const ProductDetailsSection = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Fetching Product Details
   const fetchData = async () => {
     dispatch({ type: "loading", payload: true });
     try {
@@ -115,7 +116,6 @@ const ProductDetailsSection = (props) => {
               } cursor-pointer w-20 h-20 object-cover object-center`}
               src={`${apiURL}/uploads/products/${sProduct.pImages[0]}`}
               alt="pic"
-             
             />
             <img
               onClick={(e) =>
@@ -374,8 +374,7 @@ const ProductDetailsSection = (props) => {
                     {layoutData.inCart !== null &&
                     layoutData.inCart.includes(sProduct._id) === true ? (
                       <div
-                        style={{ background: "#367E18" }}
-                        className={`px-4 py-2 text-white text-center cursor-not-allowed uppercase opacity-55`}
+                        className={`px-4 py-2 text-white bg-red-500 text-center rounded cursor-not-allowed uppercase opacity-55`}
                       >
                         In cart
                       </div>
@@ -393,8 +392,7 @@ const ProductDetailsSection = (props) => {
                             totalCost
                           )
                         }
-                        style={{ background: "#ABC270" }}
-                        className={`px-4 py-2 text-white text-center cursor-pointer uppercase`}
+                        className={`px-4 py-2 text-white bg-green-500 rounded text-center cursor-pointer uppercase`}
                       >
                         Add to cart
                       </div>

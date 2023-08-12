@@ -1,8 +1,0 @@
- <div className="card h-100 shadow-sm">
-                      <img
-                        onClick={(e) => history.push(`/products/${item._id}`)}
-                        src={`${apiURL}/uploads/products/${item.pImages[0]}`}
-                        alt="Product"
-                        style={{ maxHeight: "15rem" }}
-                        className="rounded w-full cursor-pointer"
-                      />

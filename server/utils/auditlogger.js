@@ -10,7 +10,7 @@ const auditLogger = (userId, email, name, action) => {
     fs.mkdirSync(logsDirectory);
   }
 
-  const logEntry = `${new Date().toISOString()} - User ID: ${userId}, Email: ${email}, Username: ${name}, Action: ${action}\n`;
+  const logEntry = `${new Date().toISOString()} - User ID: ${userId}, Email: ${email}, Action: ${action}\n`;
 
   fs.appendFile(logFilePath, logEntry, (err) => {
     if (err) {
